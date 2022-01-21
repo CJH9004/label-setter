@@ -31,6 +31,16 @@ spec:
             - --leader-elect
           image: controller:latest
           name: manager
+          imagePullPolicy: Always
+          env:
+            - name: MATCH_LABEL_NAME
+              value: test_add
+            - name: MATCH_LABEL_VALUE
+              value: test_add
+            - name: ADD_LABEL_NAME
+              value: test_add_add
+            - name: ADD_LABEL_VALUE
+              value: test_add_add
           securityContext:
             allowPrivilegeEscalation: false
           livenessProbe:
